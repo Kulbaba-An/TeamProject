@@ -1,0 +1,53 @@
+<div class="film-padding my-4 mx-auto">
+    <div class=" film-box row p-4 rounded  h-100">
+
+        <div class="col-lg-3 col-md-5 col-sm-12 mb-3 mb-md-0 movie-poster-wrapper-box">
+            <img class="movie-poster-wrapper img-fluid round-image" 
+                 src="categories/data/catalogs/images/{{id}}.jpg" 
+                 alt="{{name}}">
+        </div>
+
+        <div class="movie-details col-lg-9 col-md-7 col-sm-12 text-md-start text-center">
+            
+            <h3 class="movie-title mb-1 geologica">{{name}}</h3>
+            
+            <p class="text-muted small mb-3">Рік: <strong class="text-dark">{{year}}</strong></p>
+
+            <div class="movie-meta-info d-flex flex-column gap-2 mb-3">
+                
+                <div>
+                    <span class="text-muted">Жанри:</span> 
+                    <span class="fw-semibold">{{genres_display}}</span>
+                </div>
+                
+                <div>
+                    <span class="text-muted">Країна:</span> 
+                    <span class="fw-semibold">{{country}}</span>
+                </div>
+                
+                <div>
+                    <span class="text-muted">Режисер:</span> 
+                    <span class="fw-semibold">{{director}}</span>
+                </div>
+
+           
+                
+            </div>
+        </div>
+
+        <div class="col-12 mt-4">
+            <hr class="text-muted opacity-25 mb-4"> 
+            <h5 class="fw-bold mb-2 text-md-start text-center">Про фільм:</h5>
+            <p class="movie-description text-muted text-md-start text-center">
+                {{description}}
+            </p>
+            
+            <div class="text-md-start text-center mt-4">
+                <button class="btn btn-outline-secondary btn-sm" onclick="$ns.loadCatalogCategories(); return false;">
+                    ← Назад до категорій
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

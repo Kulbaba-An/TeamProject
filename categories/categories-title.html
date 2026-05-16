@@ -1,0 +1,65 @@
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <!-- Картка форми (якщо потрібен клас reg-card) -->
+        <div class="col-12 reg-card">
+            
+            <!-- Форма є прямим контейнером, а всередині неї створюємо єдиний row -->
+            <form id="search-filter-form" onsubmit="event.preventDefault();">
+                <div class="row g-3 align-items-center"> <!-- g-3 задає красиві відступи між полями -->
+                    
+                    <!-- 1. Блок текстового пошуку -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white text-muted">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" 
+                                   id="search-input" 
+                                   class="form-control" 
+                                   placeholder="Пошук за назвою...">
+                        </div>
+                    </div>
+
+                    <!-- 2. Блок тегів та вибору жанрів (автоматично розширюється по висоті) -->
+                    <div class="col-12 col-md-6 col-lg-7">
+                        <div class="form-control d-flex flex-wrap align-items-center gap-2" 
+                             id="tags-container" 
+                             style="min-height: 38px; height: auto; background-color: #fff;">
+                            
+                            <!-- Сюди JS вставлятиме обрані жанри -->
+
+                            <!-- Кнопка "+" з випадаючим списком -->
+                            <div class="dropdown" id="add-tag-dropdown">
+                                <button class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center" 
+                                        type="button" 
+                                        id="dropdownMenuButton" 
+                                        data-bs-toggle="dropdown" 
+                                        aria-expanded="false" 
+                                        style="width: 24px; height: 24px; padding: 0; font-size: 0.9rem; line-height: 1;">
+                                    +
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="dropdownMenuButton" id="dropdown-genres-list">
+                                    <li><a class="dropdown-item" href="#" data-value="action">Екшн</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="comedy">Комедія</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="drama">Драма</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="fantasy">Фентезі</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="sci-fi">Фантастика</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="horror">Жахи</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Кнопка "Пошук" -->
+                    <div class="col-12 col-md-2 col-lg-2">
+                        <button class="btn btn-primary w-100" type="button" id="search-button" style="height: 38px;">
+                            Пошук
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

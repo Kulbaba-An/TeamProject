@@ -1,0 +1,38 @@
+[
+  
+  {
+    "id": 2,
+    "name": "Комедії",
+    "short_name": "comedy"
+  },
+  {
+    "id": 3,
+    "name": "Драми",
+    "short_name": "drama"
+  },
+  {
+    "id": 4,
+    "name": "Фентезі",
+    "short_name": "fantasy"
+  },
+  {
+    "id": 5,
+    "name": "Наукова фантастика",
+    "short_name": "sci-fi"
+  },
+  {
+    "id": 6,
+    "name": "Жахи / Горрор",
+    "short_name": "horror"
+  },
+  {
+    "id": 7,
+    "name": "Трилери / Детективи",
+    "short_name": "thriller"
+  },
+  {
+    "id": 1,
+    "name": "Усі жанри",
+    "short_name": "all"
+  }
+]

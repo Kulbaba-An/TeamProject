@@ -1,0 +1,364 @@
+/* Підключення шрифтів Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Основні налаштування */
+body {
+    background-color: #f8f9fa; /* Світло-сірий фон для всієї сторінки */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+:root {
+    --main-font: 'Open Sans', sans-serif;
+    --header-font: 'Montserrat', sans-serif;
+    --accent-color: #ebe8e5;
+   
+    /*--bg-light: rgb(248, 248, 248);*/
+    --bg-gradient: linear-gradient(#85817a, #f6f6f6);
+    --bg-shadow : #605e5b59;
+    --bg-header-footer:  #2d2727;
+
+    --bg-light:  #f3f1ee;
+    /*background-image: linear-gradient(#ff9a9e, #fecfef);*/
+}
+
+
+/*------------------------Text Styles-------------------------------------*/
+
+.bungee-regular {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(50, 45, 36);
+}
+
+.geologica{
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0,
+    "SHRP" 0;
+}
+
+
+/*-------------------Buttons--------------------------------*/
+
+.floating-btn {
+  /* 1. Фіксація положення */
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  bottom: 40px; /* Відступ від нижнього краю екрана */
+  right: 40px;  /* Відступ від правого краю екрана */
+  z-index: 1000; /* Переконуємося, що кнопка буде поверх усього контенту */
+
+  /* 2. Створення ідеального кола */
+
+  border-radius: 50%;
+
+  /* 3. Центрування іконки всередині кнопки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 4. Візуальний стиль (можна змінювати під свій дизайн) */
+  background-color: #413f3c; /* Синій колір */
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тінь для ефекту об'єму */
+  
+  /* Плавний ефект при наведенні */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Ефекти взаємодії */
+.floating-btn:hover {
+  background-color:  #333;
+  transform: scale(1.05); /* Легке збільшення при наведенні */
+}
+
+.floating-btn:active {
+  transform: scale(0.95); /* Ефект натискання */
+}
+.custom-icon {
+  font-size: 30px; /* Можна вказувати в px, rem або em */
+  color: #e8eff6;  /* Попутно можна легко змінити й колір */
+}
+
+
+/*--------------------------------Кастомні картики---------------------------------------------*/
+.reg-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--bg-light);
+    border-radius: 20px;
+    box-shadow: 4px  4px 25px var(--bg-shadow); /* Тінь для ефекту об'єму */
+    flex: 1;
+  
+}
+.reg-card-box{
+    display: flex;
+     flex-direction: row;
+    gap: 20px;   
+}
+.film-box {
+    background-color: var(--bg-light);
+    /* Прибираємо margin: 10%, display: flex та flex-direction */
+    
+    /* Залишаємо тільки декоративні стилі, якщо вони потрібні, 
+       але оскільки у вас в HTML вже є класи border, rounded, bg-white, 
+       цей блок можна взагалі залишити пустим або додати легку тінь: */
+  
+  
+}
+.film-padding {
+  
+    /* Прибираємо margin: 10%, display: flex та flex-direction */
+    
+    /* Залишаємо тільки декоративні стилі, якщо вони потрібні, 
+       але оскільки у вас в HTML вже є класи border, rounded, bg-white, 
+       цей блок можна взагалі залишити пустим або додати легку тінь: */
+  
+    padding: 0 7%;
+}
+.dropdown{
+    color: #000;
+}
+.movie-poster-wrapper-box{
+    display: flex;
+    justify-content: center; /* Вирівнювання по горизонталі */
+    align-items: center;     /* Вирівнювання по вертикалі */
+}
+
+.search-box{
+    background-color: var(--bg-light);
+}
+.cards-box{
+    
+    background-color: var(--bg-light);
+    border-radius: 20px;
+    padding: 0px 20px ;
+    box-shadow: 4px  4px 25px var(--bg-shadow);
+}
+
+/* Також переконайтеся, що картинка-постер адаптивна */
+.movie-poster-wrapper {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px; /* Замість round-image, якщо 40px здасться завеликим */
+}
+#main-content {
+    padding: 40px ;
+    
+}
+#main-content > * {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.card-padding{
+
+     padding: 5%;
+}
+.round-image{
+    border-radius: 10px;
+}
+
+/* --- Плитки категорій (Tiles) --- */
+.category-tile {
+    position: relative;
+    border: 2px solid #dee2e6;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.category-tile span {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Плитки на головній (Home Tiles) --- */
+#catalog-tile, #sale-tile {
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+#catalog-tile:hover, #sale-tile:hover {
+    opacity: 0.9;
+}
+
+/* --- Картки товарів (Catalog Items) --- */
+.catalog-item-title {
+    margin-top: 15px;
+    color: #2c3e50;
+}
+
+.catalog-item-photo {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+
+.catalog-item-details {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* --- Карусель (Carousel) --- */
+#main-carousel {
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.carousel-item img {
+    height: 450px;
+    object-fit: cover; /* Щоб картинки не розтягувалися */
+}
+
+/* --- Заголовки --- */
+#catalog-categories-title {
+
+    font-weight: 800;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+   
+}
+
+/* Виправлення помилок у назвах класів з вашого HTML */
+.catrgory-tile { /* Для сумісності з одруком у вашому HTML */
+    border: 1px solid #ddd;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.visually-hiden { /* Для сумісності з одруком у кнопках каруселі */
+    display: none;
+}
+
+
+
+
+body {
+    font-family: var(--main-font);
+    background-image: var(--bg-gradient);
+    color:  var(--bg-header-footer);
+    transition: all 0.3s;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: var(--header-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar {
+    border-bottom: 2px solid var(--accent-color);
+    height: 100px;
+   background-color:var(--bg-header-footer);
+}
+.nav-link{
+    color: var(--accent-color);
+}
+.footer-style{
+    background-color:var(--bg-header-footer);
+}
+
+.card {
+   
+    border: none;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2);
+}
+
+.btn-warning {
+    background-color: var(--accent-color);
+    border: none;
+    color: #121212;
+    font-weight: bold;
+}
+
+footer {
+    border-top: 2px solid var(--accent-color);
+}
+
+/* Адаптивність (Пункт 10) */
+
+/* < 576px */
+@media (max-width: 575.98px) {
+    .navbar-brand { font-size: 1.1rem; }
+    .display-4 { font-size: 1.8rem; }
+    #game-canvas { width: 100%; height: auto; }
+}
+
+/* ≥ 576px та < 768px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .card-body { padding: 0.75rem; }
+}
+
+/* ≥ 768px та < 992px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .container { max-width: 720px; }
+}
+
+/* ≥ 992px та < 1200px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-nav .nav-link { padding-right: 1rem; }
+}
+
+/* ≥ 1200px */
+@media (min-width: 1200px) {
+    .container { max-width: 1300px; }
+}
+
+/* Стилі для аркадної гри */
+#game-canvas {
+    background: #000;
+    border: 4px solid var(--accent-color);
+    cursor: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.text-warning {
+    color: var(--accent-color) !important;
+}
+
