@@ -1,9 +1,9 @@
 /* Підключення шрифтів Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
-/* Основні налаштування */
+
 body {
-    background-color: #f8f9fa; /* Світло-сірий фон для всієї сторінки */
+    background-color: #f8f9fa; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
@@ -13,13 +13,12 @@ body {
     --header-font: 'Montserrat', sans-serif;
     --accent-color: #ebe8e5;
    
-    /*--bg-light: rgb(248, 248, 248);*/
     --bg-gradient: linear-gradient(#85817a, #f6f6f6);
     --bg-shadow : #605e5b59;
     --bg-header-footer:  #2d2727;
 
     --bg-light:  #f3f1ee;
-    /*background-image: linear-gradient(#ff9a9e, #fecfef);*/
+ 
 }
 
 
@@ -51,42 +50,39 @@ body {
   position: fixed;
   width: 80px;
   height: 80px;
-  bottom: 40px; /* Відступ від нижнього краю екрана */
-  right: 40px;  /* Відступ від правого краю екрана */
-  z-index: 1000; /* Переконуємося, що кнопка буде поверх усього контенту */
-
-  /* 2. Створення ідеального кола */
-
+  bottom: 40px; 
+  right: 40px; 
+  z-index: 1000; 
+    
   border-radius: 50%;
 
-  /* 3. Центрування іконки всередині кнопки */
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* 4. Візуальний стиль (можна змінювати під свій дизайн) */
-  background-color: #413f3c; /* Синій колір */
+
+  background-color: #413f3c; 
   color: white;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тінь для ефекту об'єму */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
   
-  /* Плавний ефект при наведенні */
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Ефекти взаємодії */
+
 .floating-btn:hover {
   background-color:  #333;
-  transform: scale(1.05); /* Легке збільшення при наведенні */
+  transform: scale(1.05); 
 }
 
 .floating-btn:active {
-  transform: scale(0.95); /* Ефект натискання */
+  transform: scale(0.95); 
 }
 .custom-icon {
-  font-size: 30px; /* Можна вказувати в px, rem або em */
-  color: #e8eff6;  /* Попутно можна легко змінити й колір */
+  font-size: 30px;
+  color: #e8eff6;  
 }
 
 
@@ -98,7 +94,7 @@ body {
     padding: 20px;
     background-color: var(--bg-light);
     border-radius: 20px;
-    box-shadow: 4px  4px 25px var(--bg-shadow); /* Тінь для ефекту об'єму */
+    box-shadow: 4px  4px 25px var(--bg-shadow);
     flex: 1;
 
     align-items: center;    
@@ -116,6 +112,9 @@ body {
 }
 .film-padding {
     padding: 0 7%;
+}
+.category-item{
+    height: 300px;
 }
 .dropdown{
     color: #000;
