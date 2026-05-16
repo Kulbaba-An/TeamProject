@@ -5,22 +5,15 @@
     const allCategoriesURL = "categories/data/categories.json"; // Загальний список жанрів
     const categoryHtml = "categories/category-item.html";       // Картка жанру на головній
     
-    // Шляхи до файлів фільмів та заголовків категорій (З єдиним JSON)
+  
     const singleCatalogJsonUrl = "categories/data/films-catalog.json"; // ОДИН файл на всі фільми
     const catalogItemsTitleHtml = "categories/categories-title.html";  // Шаблон заголовка категорії
-   // const catalogItemHtml = "categories/data/catalogs/film-item.html";  // Картка фільму у списку
-  //  const singleFilmHtml = "categories/data/catalogs/single-film.html"; // Окрема сторінка фільму
-// Шляхи до файлів фільмів та заголовків категорій (З єдиним JSON)
-//const singleCatalogJsonUrl = "categories/data/films-catalog.json"; // ОДИН файл на всі фільми
+ 
 
-// ВИПРАВЛЕНО: прибрано "categories/", бо файл лежить у корінь проєкту
-//const catalogItemsTitleHtml = "categories-title.html"; 
+    const catalogItemHtml = "categories/data/catalogs/film-item.html"; 
 
-// Перевірте, чи цей шаблон є саме карткою для сітки (короткий опис)
-const catalogItemHtml = "categories/data/catalogs/film-item.html"; 
-
-// Шаблон повної сторінки одного фільму (який ми щойно модифікували)
-const singleFilmHtml = "categories/data/catalogs/single-film.html";
+    // Шаблон повної сторінки одного фільму (який ми щойно модифікували)
+    const singleFilmHtml = "categories/data/catalogs/single-film.html";
 
     // Кеш для збереження ВСІХ фільмів (завантажується один раз)
     ns.cachedFilms = null;
@@ -92,15 +85,21 @@ const singleFilmHtml = "categories/data/catalogs/single-film.html";
     };
 
     function renderCategoryFilms(categoryShort) {
-        // Шукаємо назву поточної категорії у файлі categories.json для заголовка
+       
         $ajaxUtils.sendGetRequest(allCategoriesURL, function(categories) {
             const currentCategory = categories.find(cat => cat.short_name === categoryShort);
             const categoryName = currentCategory ? currentCategory.name : categoryShort.toUpperCase();
 
-            // Фільтруємо великий масив. Фільм рендериться, якщо його масив категорій містить в собі categoryShort
-            const filteredFilms = ns.cachedFilms.filter(film => {
-                return Array.isArray(film.category) && film.category.includes(categoryShort);
-            });
+
+            let filteredFilms = [];
+            if(categoryShort === "all"){
+                filteredFilms = ns.cachedFilms;
+            }
+            else{
+                filteredFilms = ns.cachedFilms.filter(film => {
+                    return Array.isArray(film.category) && film.category.includes(categoryShort);
+                });
+            }
             
             // Завантажуємо спочатку заголовок категорії
             $ajaxUtils.sendGetRequest(catalogItemsTitleHtml, function(titleHtmlTemplate) {
