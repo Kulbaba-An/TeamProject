@@ -70,11 +70,48 @@
             // Виклик функції пошуку
             nsFilter.performSearch(query, genresToSearch);
         });
+
+        const searchForm = document.querySelector("#search-filter-form");
+        if (searchForm) {
+            searchForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                searchButton.click();
+            });
+        }
     };
 
     nsFilter.performSearch = function(textQuery, selectedGenresArray) {
         console.log("Шукаємо текст:", textQuery, "Жанри:", selectedGenresArray);
-        // Тут ваша логіка фільтрації масиву даних
+        
+        if (!window.$ns || !window.$ns.cachedFilms) {
+            console.error("Фільми ще не завантажені або об'єкт $ns недоступний.");
+            return;
+        }
+
+        const queryLower = textQuery.toLowerCase();
+        
+        const filteredFilms = window.$ns.cachedFilms.filter(film => {
+            // 1. Фільтр по тексту (шукаємо в назві або описі)
+            const textMatch = !textQuery || 
+                (film.name && film.name.toLowerCase().includes(queryLower)) ||
+                (film.description && film.description.toLowerCase().includes(queryLower));
+
+            // 2. Фільтр по жанрах (фільм повинен мати всі вибрані жанри - логіка AND)
+            let genresMatch = true;
+            if (selectedGenresArray && selectedGenresArray.length > 0) {
+                const filmGenres = Array.isArray(film.category) ? film.category : [film.category];
+                genresMatch = selectedGenresArray.every(genre => filmGenres.includes(genre));
+            }
+
+            return textMatch && genresMatch;
+        });
+
+        // Викликаємо функцію з script.js для оновлення списку фільмів у DOM
+        if (typeof window.$ns.updateFilmsList === "function") {
+            window.$ns.updateFilmsList(filteredFilms);
+        } else {
+            console.error("Функція updateFilmsList не знайдена в $ns.");
+        }
     };
 
     global.$nsFilter = nsFilter;

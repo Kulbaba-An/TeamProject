@@ -84,6 +84,37 @@
         }
     };
 
+    ns.updateFilmsList = function(films) {
+        $ajaxUtils.sendGetRequest(catalogItemHtml, function(catalogItemHtmlTemplate) {
+            let filmsHtml = "<div class='cards-box' id='films-list-container'><section class='row g-4'>";
+
+            films.forEach(film => {
+                let html = catalogItemHtmlTemplate;
+                html = insertProperty(html, "id", film.id);
+                html = insertProperty(html, "name", film.name);
+                html = insertProperty(html, "description", film.description);
+                let imgUrl = film.imageUrl || ("categories/data/catalogs/images/" + film.id + ".jpg");
+                html = insertProperty(html, "imageUrl", imgUrl);
+                filmsHtml += html;
+            });
+            filmsHtml += "</section></div>";
+
+            const existingContainer = document.querySelector("#films-list-container");
+            if (existingContainer) {
+                existingContainer.outerHTML = filmsHtml;
+            } else {
+                // Fallback, should not happen if called correctly
+                const mainContent = document.querySelector("#main-content");
+                const oldCardsBox = mainContent.querySelector(".cards-box");
+                if (oldCardsBox) {
+                    oldCardsBox.outerHTML = filmsHtml;
+                } else {
+                    mainContent.innerHTML += filmsHtml;
+                }
+            }
+        }, false);
+    };
+
     function renderCategoryFilms(categoryShort) {
        
         $ajaxUtils.sendGetRequest(allCategoriesURL, function(categories) {
@@ -112,13 +143,15 @@
                     titleHtml = insertProperty(titleHtml, "notes", "Перегляд фільмів за обраним жанром.");
 
                     // 2. Будуємо список відфільтрованих фільмів
-                    let filmsHtml = "<div class='cards-box'><section class='row g-4'>";
+                    let filmsHtml = "<div class='cards-box' id='films-list-container'><section class='row g-4'>";
 
                     filteredFilms.forEach(film => {
                         let html = catalogItemHtmlTemplate;
                         html = insertProperty(html, "id", film.id);
                         html = insertProperty(html, "name", film.name);
                         html = insertProperty(html, "description", film.description);
+                        let imgUrl = film.imageUrl || ("categories/data/catalogs/images/" + film.id + ".jpg");
+                        html = insertProperty(html, "imageUrl", imgUrl);
                       
                         filmsHtml += html;
                     });
@@ -126,6 +159,11 @@
 
                     // Зклеюємо заголовок та фільми разом і виводимо в DOM
                     insertHTML("#main-content", titleHtml + filmsHtml);
+
+                    // Ініціалізуємо пошук і теги, оскільки форма тепер в DOM
+                    if (window.$nsFilter && typeof window.$nsFilter.initSearchAndTags === "function") {
+                        window.$nsFilter.initSearchAndTags();
+                    }
 
                 }, false);
             }, false);
@@ -194,6 +232,8 @@
         // Вставляємо вже згенеровані бейджи жанрів замість плейсхолдера
         html = insertProperty(html, "genres_display", genresHtml);
         
+        let imgUrl = film.imageUrl || ("categories/data/catalogs/images/" + film.id + ".jpg");
+        html = insertProperty(html, "imageUrl", imgUrl);
      
    
         insertHTML("#main-content", html);

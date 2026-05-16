@@ -265,6 +265,9 @@ body {
     background-image: var(--bg-gradient);
     color:  var(--bg-header-footer);
     transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1, h2, h3, .navbar-brand {
@@ -275,7 +278,7 @@ h1, h2, h3, .navbar-brand {
 
 .navbar {
     border-bottom: 2px solid var(--accent-color);
-    height: 100px;
+    height: 55px;
    background-color:var(--bg-header-footer);
 }
 .nav-link{
