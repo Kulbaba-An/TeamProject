@@ -100,31 +100,21 @@ body {
     border-radius: 20px;
     box-shadow: 4px  4px 25px var(--bg-shadow); /* Тінь для ефекту об'єму */
     flex: 1;
+
+    align-items: center;    
+    justify-content: center;
+    width: 100%;
   
 }
 .reg-card-box{
     display: flex;
-     flex-direction: row;
+    flex-direction: row;
     gap: 20px;   
 }
 .film-box {
-    background-color: var(--bg-light);
-    /* Прибираємо margin: 10%, display: flex та flex-direction */
-    
-    /* Залишаємо тільки декоративні стилі, якщо вони потрібні, 
-       але оскільки у вас в HTML вже є класи border, rounded, bg-white, 
-       цей блок можна взагалі залишити пустим або додати легку тінь: */
-  
-  
+    background-color: var(--bg-light);  
 }
 .film-padding {
-  
-    /* Прибираємо margin: 10%, display: flex та flex-direction */
-    
-    /* Залишаємо тільки декоративні стилі, якщо вони потрібні, 
-       але оскільки у вас в HTML вже є класи border, rounded, bg-white, 
-       цей блок можна взагалі залишити пустим або додати легку тінь: */
-  
     padding: 0 7%;
 }
 .dropdown{
@@ -132,8 +122,8 @@ body {
 }
 .movie-poster-wrapper-box{
     display: flex;
-    justify-content: center; /* Вирівнювання по горизонталі */
-    align-items: center;     /* Вирівнювання по вертикалі */
+    justify-content: center; 
+    align-items: center;    
 }
 
 .search-box{
@@ -147,12 +137,12 @@ body {
     box-shadow: 4px  4px 25px var(--bg-shadow);
 }
 
-/* Також переконайтеся, що картинка-постер адаптивна */
+
 .movie-poster-wrapper {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 15px; /* Замість round-image, якщо 40px здасться завеликим */
+    border-radius: 15px; 
 }
 #main-content {
     padding: 40px ;
@@ -170,7 +160,7 @@ body {
     border-radius: 10px;
 }
 
-/* --- Плитки категорій (Tiles) --- */
+
 .category-tile {
     position: relative;
     border: 2px solid #dee2e6;
@@ -257,8 +247,8 @@ body {
    
 }
 
-/* Виправлення помилок у назвах класів з вашого HTML */
-.catrgory-tile { /* Для сумісності з одруком у вашому HTML */
+
+.catrgory-tile { 
     border: 1px solid #ddd;
     text-align: center;
     margin-bottom: 20px;
