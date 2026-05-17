@@ -103,6 +103,7 @@ body {
     background-color: transparent;
     border: 1px solid var(--bg-header-footer); 
     color:  var(--bg-header-footer); 
+}
 
 .btn-custom-add:hover, 
 .btn-custom-add:focus,
