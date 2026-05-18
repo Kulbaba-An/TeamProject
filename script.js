@@ -250,6 +250,15 @@
         });
     };
 
+    ns.loadGame = function() {
+        $ajaxUtils.sendGetRequest("game.html", function(responseText) {
+            insertHTML("#main-content", responseText);
+            if (window.$game && typeof window.$game.init === "function") {
+                window.$game.init();
+            }
+        }, false);
+    };
+
     global.$ns = ns;
 
 })(window);

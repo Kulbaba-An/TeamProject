@@ -1,0 +1,32 @@
+<div class="container mt-4 text-center" style="padding: 10px;">
+    <h2 style="font-size: clamp(1.5rem, 5vw, 2rem);">🎬 Кіно-Аркада 🎬</h2>
+    <div class="mb-3">
+        <span style="font-size: clamp(1rem, 4vw, 1.5rem);" class="fw-bold text-warning">Бали: <span id="game-score">0</span></span>
+    </div>
+    
+    <!-- Вибір рівня складності -->
+    <div id="levelSelectContainer" class="mb-4" style="display: none;">
+        <p class="text-warning fw-bold">Виберіть рівень складності:</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+            <button class="btn btn-success" onclick="$game.selectLevel(0)" style="font-size: clamp(0.8rem, 2vw, 0.9rem); padding: 8px 12px;">
+                <i class="bi bi-star me-1"></i> Легкий
+            </button>
+            <button class="btn btn-info" onclick="$game.selectLevel(1)" style="font-size: clamp(0.8rem, 2vw, 0.9rem); padding: 8px 12px;">
+                <i class="bi bi-star-fill me-1"></i> Нормальний
+            </button>
+            <button class="btn btn-danger" onclick="$game.selectLevel(2)" style="font-size: clamp(0.8rem, 2vw, 0.9rem); padding: 8px 12px;">
+                <i class="bi bi-star-fill me-1"></i> Важкий
+            </button>
+            <button class="btn btn-dark" onclick="$game.selectLevel(3)" style="font-size: clamp(0.8rem, 2vw, 0.9rem); padding: 8px 12px;">
+                <i class="bi bi-lightning-fill me-1"></i> Екстрим
+            </button>
+        </div>
+    </div>
+    
+    <div style="display: flex; justify-content: center; margin: 15px 0;">
+        <canvas id="gameCanvas" width="800" height="500" style="background: #111; border: 2px solid #ffc107; border-radius: 10px; width: 100%; max-width: 800px; height: auto; box-shadow: 0 0 15px rgba(255, 193, 7, 0.5); touch-action: none;"></canvas>
+    </div>
+    <br>
+    <button id="startGameBtn" class="btn btn-warning mt-3" style="font-size: clamp(0.9rem, 3vw, 1rem); padding: 8px 16px;"><i class="bi bi-play-circle me-1"></i> Почати гру</button>
+</div>
+
