@@ -186,7 +186,9 @@ body {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%) !important;
 }
 #main-content {
-    padding: 40px ;
+    padding: 95px 40px 40px 40px; 
+    flex: 1; 
+}
     
 }
 #main-content > * {
