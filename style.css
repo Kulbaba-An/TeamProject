@@ -161,6 +161,9 @@ body {
     padding: 0px 20px ;
     box-shadow: 4px  4px 25px var(--bg-shadow);
 }
+#home-tiles{
+      height: 300px;
+}
 
 
 .movie-poster-wrapper {
