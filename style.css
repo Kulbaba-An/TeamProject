@@ -13,9 +13,9 @@ body {
     --header-font: 'Montserrat', sans-serif;
     --accent-color: #ebe8e5;
    
-    --bg-gradient: linear-gradient(#85817a, #f6f6f6);
-    --bg-shadow : #605e5b59;
-    --bg-header-footer:  #2d2727;
+    --bg-gradient: linear-gradient(#868584, #f6f6f6);
+    --bg-shadow : #5c5b5a59;
+    --bg-header-footer:  #1c1a1a;
 
     --bg-light:  #f3f1ee;
  
