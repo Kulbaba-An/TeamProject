@@ -232,14 +232,6 @@
 }
 
   
-       
-    ns.loadRandomCategory = function () {
-        $ajaxUtils.sendGetRequest(allCategoriesURL, function(categories) {
-            const randomIndex = Math.floor(Math.random() * categories.length);
-            const randomCategoryShortName = categories[randomIndex].short_name;
-            ns.loadCatalogItems(randomCategoryShortName);
-        });
-    };
 
     ns.loadGame = function() {
         $ajaxUtils.sendGetRequest("game.html", function(responseText) {
